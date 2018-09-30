@@ -1,0 +1,64 @@
+set nocompatible              
+filetype off                 
+" 你在此设置运行时路径"
+set rtp+=~/.vim/bundle/Vundle.vim  
+ 
+" vundle初始化 
+call vundle#begin()  
+call vundle#end()            " required
+if filereadable(expand("~/.vimrc.bundles"))
+  source ~/.vimrc.bundles
+endif
+
+"--------------------------------------- 
+set backspace=2 
+set number
+let g:gruvbox_italic=1
+syntax on
+filetype plugin indent on
+
+" Nerdtree ------------------------------
+" toggle nerdtree display
+map <F2> :NERDTreeToggle<CR>
+" " open nerdtree with the current file selected
+nmap ,t :NERDTreeFind<CR>
+" " don;t show these file types
+let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
+
+" Tagbar ------------------------------
+let g:tagbar_width=30
+map <F8> :TagbarToggle<CR>
+
+" CtrlP ------------------------------
+let g:ctrlp_map = '<c-f>'
+" tags (symbols) in current file finder mapping
+nmap ,g :CtrlPBufTag<CR>
+" tags (symbols) in all files finder mapping
+nmap ,G :CtrlPBufTagAll<CR>
+" general code finder in all files mapping
+nmap ,f :CtrlPLine<CR>
+" recent files finder mapping
+nmap ,m :CtrlPMRUFiles<CR>
+" commands finder mapping
+nmap ,c :CtrlPCmdPalette<CR>
+" to be able to call CtrlP with default search text
+function! CtrlPWithSearchText(search_text, ctrlp_command_end)
+    execute ':CtrlP' . a:ctrlp_command_end
+    call feedkeys(a:search_text)
+endfunction
+        " same as previous mappings, but calling with current word asdefault text
+nmap ,wg :call CtrlPWithSearchText(expand('<cword>'), 'BufTag')<CR>
+nmap ,wG :call CtrlPWithSearchText(expand('<cword>'),'BufTagAll')<CR>
+nmap ,wf :call CtrlPWithSearchText(expand('<cword>'), 'Line')<CR>
+nmap ,we :call CtrlPWithSearchText(expand('<cword>'), '')<CR>
+nmap ,pe :call CtrlPWithSearchText(expand('<cfile>'), '')<CR>
+nmap ,wm :call CtrlPWithSearchText(expand('<cword>'),'MRUFiles')<CR>
+nmap ,wc :call CtrlPWithSearchText(expand('<cword>'),'CmdPalette')<CR>
+" don't change working directory
+let g:ctrlp_working_path_mode = 0
+" ignore these files and folders on file finder
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip  
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](\.git|\.hg|\.svn|node_modules)$',
+  \ 'file': '\.pyc$\|\.pyo$',
+  \ }
