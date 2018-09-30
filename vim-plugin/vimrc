@@ -14,6 +14,8 @@ endif
 set backspace=2 
 set number
 let g:gruvbox_italic=1
+set encoding=utf-8
+set fileencodings=utf-8,gbk,ucs-bom,gb18030,gb2312,cp93
 syntax on
 filetype plugin indent on
 
@@ -62,3 +64,16 @@ let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/](\.git|\.hg|\.svn|node_modules)$',
   \ 'file': '\.pyc$\|\.pyo$',
   \ }
+
+" Ctrlfs ------------------------------
+" 快捷键速记法：search in project
+let g:ctrlsf_ackprg = 'ack' 
+let g:ctrlsf_default_view_mode = 'compact'
+nmap     <C-P> <Plug>CtrlSFPrompt
+vmap <C-P>f <Plug>CtrlSFVwordPath 
+vmap <C-P>F <Plug>CtrlSFVwordExec 
+nmap <C-P>n <Plug>CtrlSFCwordPath 
+nmap <C-P>p <Plug>CtrlSFPwordPath 
+nnoremap <C-P>o :CtrlSFOpen<CR>
+nnoremap <C-P>t :CtrlSFToggle<CR>
+inoremap <C-P>t <Esc>:CtrlSFToggle<CR>
