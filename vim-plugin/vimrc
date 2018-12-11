@@ -1,11 +1,10 @@
 set nocompatible              
-filetype off                 
-" 你在此设置运行时路径"
+filetype on
 set rtp+=~/.vim/bundle/Vundle.vim  
  
-" vundle初始化 
+"" vundle初始化 
 call vundle#begin()  
-call vundle#end()            " required
+call vundle#end()          
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
 endif
@@ -20,7 +19,6 @@ syntax on
 filetype plugin indent on
 
 " Nerdtree ------------------------------
-" toggle nerdtree display
 map <F2> :NERDTreeToggle<CR>
 " " open nerdtree with the current file selected
 nmap ,t :NERDTreeFind<CR>

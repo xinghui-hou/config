@@ -8,7 +8,8 @@ export ZSH="/Users/houxinghui/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+#ZSH_THEME="robbyrussell"
+ZSH_THEME="agnoster"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -99,4 +100,21 @@ alias zshconfig="mate ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 
+### Go Env
 export GOPATH=$HOME/go
+
+
+## java Env
+JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-11.jdk/Contents/Home/"
+CLASS_PATH="$JAVA_HOME/lib"
+PATH=".:$PATH:$JAVA_HOME/bin"
+
+export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/highlighters
+DEFAULT_USER="houxinghui"
+
+### virtualenvwrapper
+#export WORKON_HOME=/Users/houxinghui/virtualenv/virtualenvs
+#export PROJECT_HOME=/Users/houxinghui/virtualenv/workspace
+#source /usr/local/bin/virtualenvwrapper.sh
+
+
