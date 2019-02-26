@@ -3,7 +3,7 @@ DIR="/usr/local/libevent";
 yum -y install ncurses-devel gcc gcc-c++ make wget
 
 [ -f libevent-2.0.20-stable.tar.gz ] || wget https://github.com/downloads/libevent/libevent/libevent-2.0.20-stable.tar.gz
-tar vzf libevent-2.0.20-stable.tar.gz
+tar xvzf libevent-2.0.20-stable.tar.gz
 cd libevent-2.0.20-stable
 ./configure --prefix=$DIR
 make && make install
